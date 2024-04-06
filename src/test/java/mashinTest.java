@@ -1,46 +1,29 @@
-import static java.lang.System.out;
+import khodro.mashin;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class mashinTest {
-    class mashin {
-        //dade
-        boolean ayaMashinRoshanAst;
-        boolean ayaDarBazast;
-        String mark;
-        String color;
-        double toul;
-        double arz;
+    @Test
+    void Mashin_bayad_harekat_konad_vaghty_dar_mashin_baste_va_roshan_ast() {
+        //Given
+        mashin benz = new mashin("Benz");
+        mashin volvo = new mashin("Volvo");
 
+        //when
+        boolean ayaDarHalHarkatAst = benz.ayaDarHalHarekatAst();
+        volvo.roshan();
+        boolean ayaVolvoHarkatMikonad = volvo.ayaDarHalHarekatAst();
 
-        //method
-        void roshan() {
-            out.println("mashin roshan ast");
-            ayaMashinRoshanAst = true;
-        }
-
-        void khamosh() {
-            out.println("mashin khamosh ast");
-            ayaMashinRoshanAst = false;
-        }
-
-        void darBazAst() {
-            out.println("dar mashin baz ast");
-            ayaDarBazast = true;
-        }
-
-        void darbasteAst() {
-            out.println("dar mashin baste ast");
-            ayaDarBazast = false;
-        }
-        void harkat(){
-            if(!ayaDarBazast&&ayaMashinRoshanAst){
-                out.println("mashin dar hal harkat ast");
-            }else {
-                out.println("mashin park ast");
-            }
-        }
-
+        //then
+        assertFalse(ayaDarHalHarkatAst);
+        assertTrue(ayaVolvoHarkatMikonad);
 
 
     }
 
+
 }
+
+
